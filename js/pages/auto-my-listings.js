@@ -1,4 +1,4 @@
-import { CAR_LISTINGS } from "/js/mock-data/cars.js";
+import { CAR_LISTINGS } from "../mock-data/cars.js";
 
 const fmtPrice = (n) => `$${n.toLocaleString("en-US")}`;
 
@@ -23,7 +23,7 @@ function cardTemplate(car) {
       <div class="my-listing-actions">
         <button class="btn btn-sm btn-outline" data-demo-only>Edit</button>
         <button class="btn btn-sm btn-outline" data-demo-only>Delete</button>
-        <a href="/auto/listing.html?id=${car.id}" class="btn btn-sm">View</a>
+        <a href="listing.html?id=${car.id}" class="btn btn-sm">View</a>
       </div>
     </div>
   </div>`;

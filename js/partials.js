@@ -1,20 +1,25 @@
-import { PIN_LOGO_SVG, SOCIAL_ICONS } from "/js/logo.js";
-import { markActiveNav } from "/js/nav-active.js";
+import { PIN_LOGO_SVG, SOCIAL_ICONS } from "./logo.js";
+import { markActiveNav } from "./nav-active.js";
+
+// partials.js always lives at "<site root>/js/partials.js", so this resolves
+// to the site root regardless of deployment subpath (localhost, GitHub
+// Pages project subpath, custom domain, ...) or which page depth loaded it.
+const SITE_ROOT = new URL("../", import.meta.url).href;
 
 const HERO_ITEMS = [
-  { key: "space-needle", label: "Space Needle", img: "/img/hero/space-needle.jpg" },
-  { key: "downtown", label: "Downtown Seattle", img: "/img/hero/downtown.jpg" },
-  { key: "mount-rainier", label: "Mount Rainier", img: "/img/hero/mount-rainier.jpg" },
-  { key: "waterfront", label: "Seattle Waterfront", img: "/img/hero/waterfront.jpg" },
-  { key: "pike-place", label: "Pike Place Market", img: "/img/hero/pike-place.jpg" },
+  { key: "space-needle", label: "Space Needle", img: `${SITE_ROOT}img/hero/space-needle.jpg` },
+  { key: "downtown", label: "Downtown Seattle", img: `${SITE_ROOT}img/hero/downtown.jpg` },
+  { key: "mount-rainier", label: "Mount Rainier", img: `${SITE_ROOT}img/hero/mount-rainier.jpg` },
+  { key: "waterfront", label: "Seattle Waterfront", img: `${SITE_ROOT}img/hero/waterfront.jpg` },
+  { key: "pike-place", label: "Pike Place Market", img: `${SITE_ROOT}img/hero/pike-place.jpg` },
 ];
 
 const NAV_LINKS = [
-  { key: "home", label: "Home", href: "/index.html" },
-  { key: "news", label: "News", href: "/news.html" },
-  { key: "directory", label: "Directory", href: "/directory.html" },
-  { key: "pricing", label: "Pricing", href: "/pricing.html" },
-  { key: "auto", label: "Auto", href: "/auto/index.html" },
+  { key: "home", label: "Home", href: `${SITE_ROOT}index.html` },
+  { key: "news", label: "News", href: `${SITE_ROOT}news.html` },
+  { key: "directory", label: "Directory", href: `${SITE_ROOT}directory.html` },
+  { key: "pricing", label: "Pricing", href: `${SITE_ROOT}pricing.html` },
+  { key: "auto", label: "Auto", href: `${SITE_ROOT}auto/index.html` },
 ];
 
 const NAV_DISABLED = ["Jobs", "Events", "Shopping", "Entertainment", "Weather"];
@@ -76,7 +81,7 @@ function functionalHeaderMarkup() {
           <span class="weather-note">${w.note}</span>
         </div>
       </div>
-      <a href="/index.html" class="site-logo">
+      <a href="${SITE_ROOT}index.html" class="site-logo">
         <span class="site-logo-icon">${PIN_LOGO_SVG}</span>
         <span class="site-logo-text">
           <span class="site-logo-word">AllSeattle</span>
@@ -162,10 +167,10 @@ export function renderFooter() {
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="/news.html">News</a></li>
-          <li><a href="/directory.html">Business Directory</a></li>
-          <li><a href="/auto/index.html">Auto</a></li>
-          <li><a href="/pricing.html">Advertise with us</a></li>
+          <li><a href="${SITE_ROOT}news.html">News</a></li>
+          <li><a href="${SITE_ROOT}directory.html">Business Directory</a></li>
+          <li><a href="${SITE_ROOT}auto/index.html">Auto</a></li>
+          <li><a href="${SITE_ROOT}pricing.html">Advertise with us</a></li>
         </ul>
       </div>
     </div>

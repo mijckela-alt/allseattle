@@ -1,11 +1,11 @@
-import { CAR_LISTINGS } from "/js/mock-data/cars.js";
+import { CAR_LISTINGS } from "../mock-data/cars.js";
 
 const fmtPrice = (n) => `$${n.toLocaleString("en-US")}`;
 const fmtMileage = (n) => `${n.toLocaleString("en-US")} mi`;
 
 export function carCardTemplate(car) {
   return `
-  <a href="/auto/listing.html?id=${car.id}" class="card car-card">
+  <a href="listing.html?id=${car.id}" class="card car-card">
     <div class="car-card-photo"><img src="${car.photos[0]}" alt="${car.year} ${car.make} ${car.model}" loading="lazy"></div>
     <div class="car-card-body">
       <div class="car-card-price">${fmtPrice(car.price)}</div>

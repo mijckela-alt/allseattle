@@ -1,8 +1,8 @@
 function photosFor(bodyType) {
   return [
-    `/img/cars/${bodyType}-1.jpg`,
-    `/img/cars/${bodyType}-2.jpg`,
-    `/img/cars/${bodyType}-3.jpg`,
+    `../img/cars/${bodyType}-1.jpg`,
+    `../img/cars/${bodyType}-2.jpg`,
+    `../img/cars/${bodyType}-3.jpg`,
   ];
 }
 

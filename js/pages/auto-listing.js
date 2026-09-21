@@ -1,6 +1,6 @@
-import { CAR_LISTINGS } from "/js/mock-data/cars.js";
-import { carCardTemplate } from "/js/pages/auto-catalog.js";
-import { validate, isEmail, digits } from "/js/validation.js";
+import { CAR_LISTINGS } from "../mock-data/cars.js";
+import { carCardTemplate } from "./auto-catalog.js";
+import { validate, isEmail, digits } from "../validation.js";
 
 const fmtPrice = (n) => `$${n.toLocaleString("en-US")}`;
 const fmtMileage = (n) => `${n.toLocaleString("en-US")} mi`;
@@ -14,7 +14,7 @@ function renderNotFound() {
     <div class="text-center" style="padding:60px 0;">
       <h2>Listing not found</h2>
       <p class="muted">This listing may have been removed or the link is incorrect.</p>
-      <a href="/auto/index.html" class="btn">Back to Catalog</a>
+      <a href="index.html" class="btn">Back to Catalog</a>
     </div>`;
   document.getElementById("similar-cars-wrap").classList.add("hidden");
 }
@@ -159,7 +159,7 @@ function render() {
   wireContactSeller();
   renderSimilar(car);
 
-  import("/js/banner-ads.js").then((m) => m.mountAdSlots(document));
+  import("../banner-ads.js").then((m) => m.mountAdSlots(document));
 }
 
 document.addEventListener("DOMContentLoaded", render);

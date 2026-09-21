@@ -1,20 +1,20 @@
-import { NEWS_ARTICLES } from "/js/mock-data/news.js";
-import { BUSINESSES } from "/js/mock-data/businesses.js";
-import { CAR_LISTINGS } from "/js/mock-data/cars.js";
+import { NEWS_ARTICLES } from "../mock-data/news.js";
+import { BUSINESSES } from "../mock-data/businesses.js";
+import { CAR_LISTINGS } from "../mock-data/cars.js";
 
 function newsCardTemplate(article) {
   return `
   <article class="card news-card">
-    <a href="/news.html" class="news-card-photo"><img src="${article.photo}" alt="${article.title}" loading="lazy"></a>
+    <a href="news.html" class="news-card-photo"><img src="${article.photo}" alt="${article.title}" loading="lazy"></a>
     <div class="news-card-body">
       <div class="news-card-meta">
         <span class="cat">${article.category}</span>
         <span>&middot;</span>
         <span>${article.date}</span>
       </div>
-      <h3><a href="/news.html">${article.title}</a></h3>
+      <h3><a href="news.html">${article.title}</a></h3>
       <p class="news-card-excerpt">${article.excerpt}</p>
-      <a href="/news.html" class="news-card-more">Read more &rarr;</a>
+      <a href="news.html" class="news-card-more">Read more &rarr;</a>
     </div>
   </article>`;
 }

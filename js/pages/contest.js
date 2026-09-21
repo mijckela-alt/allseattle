@@ -1,4 +1,4 @@
-import { CONTEST_ENTRIES, getVotes, incrementVote, hasVoted, resetVotes } from "/js/mock-data/contest.js";
+import { CONTEST_ENTRIES, getVotes, incrementVote, hasVoted, resetVotes } from "../mock-data/contest.js";
 
 function entryTemplate(entry) {
   const votes = getVotes(entry.id, entry.baseVotes);

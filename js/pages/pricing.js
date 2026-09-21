@@ -1,6 +1,6 @@
-import { PRICING_TIERS, PRICING_FEATURES } from "/js/mock-data/pricing.js";
-import { validate, isEmail, digits } from "/js/validation.js";
-import { wireModal, closeModal, openModal } from "/js/modal.js";
+import { PRICING_TIERS, PRICING_FEATURES } from "../mock-data/pricing.js";
+import { validate, isEmail, digits } from "../validation.js";
+import { wireModal, closeModal, openModal } from "../modal.js";
 
 const TIER_CLASS = { standard: "badge-standard", lux: "badge-lux", premium: "badge-premium" };
 

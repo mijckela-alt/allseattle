@@ -1,4 +1,4 @@
-import { validate, isEmail, digits } from "/js/validation.js";
+import { validate, isEmail, digits } from "../validation.js";
 
 const TOTAL_STEPS = 4;
 let currentStep = 1;
@@ -130,8 +130,8 @@ function wireNav() {
         <div class="success-icon">&#9989;</div>
         <h3>Listing sent for moderation</h3>
         <p class="muted">Thanks! A team member will review your listing shortly. This is a demo — nothing was actually saved or published.</p>
-        <a href="/auto/add-listing.html" class="btn">Submit Another</a>
-        <a href="/auto/index.html" class="btn btn-outline" style="margin-left:8px;">Back to Catalog</a>
+        <a href="add-listing.html" class="btn">Submit Another</a>
+        <a href="index.html" class="btn btn-outline" style="margin-left:8px;">Back to Catalog</a>
       </div>`;
   });
 }

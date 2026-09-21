@@ -1,6 +1,6 @@
-import { NEWS_ARTICLES } from "/js/mock-data/news.js";
-import { validate, isEmail, digits } from "/js/validation.js";
-import { wireModal, closeModal } from "/js/modal.js";
+import { NEWS_ARTICLES } from "../mock-data/news.js";
+import { validate, isEmail, digits } from "../validation.js";
+import { wireModal, closeModal } from "../modal.js";
 
 function newsCardTemplate(article) {
   return `

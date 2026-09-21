@@ -1,4 +1,4 @@
-import { BUSINESSES, BUSINESS_CATEGORIES } from "/js/mock-data/businesses.js";
+import { BUSINESSES, BUSINESS_CATEGORIES } from "../mock-data/businesses.js";
 
 const PACKAGE_CLASS = {
   Standard: "badge-standard",
