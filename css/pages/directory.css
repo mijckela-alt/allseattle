@@ -33,6 +33,10 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .directory-sidebar > * {
+    flex: 1 1 260px;
+    min-width: 0;
+  }
 }
 
 @media (max-width: 620px) {

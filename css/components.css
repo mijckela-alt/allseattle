@@ -3,11 +3,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  min-width: 0;
 }
 
 .ad-slot {
   width: 100%;
   max-width: var(--ad-max-w);
+  min-width: 0;
+  flex-shrink: 1;
   border: 2px dashed var(--color-slate-soft);
   border-radius: 10px;
   background: var(--color-bg-soft);

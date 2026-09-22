@@ -153,15 +153,16 @@ export function renderFooter() {
         <h4>Contact</h4>
         <ul>
           <li>Phone: <a href="tel:+12063318216">(206) 331-8216</a></li>
-          <li>Email: <span class="muted">Coming soon</span></li>
+          <li>Email: <a href="mailto:info@allseattle.com">info@allseattle.com</a></li>
           <li>Seattle, WA</li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Follow us</h4>
         <ul>
-          <li>Facebook: <span class="muted">Coming soon</span></li>
-          <li>Instagram: <span class="muted">Coming soon</span></li>
+          <li>Facebook: <a href="#">/AllSeattle</a></li>
+          <li>Twitter: <a href="#">@AllSeattleWA</a></li>
+          <li>Instagram: <a href="#">@allseattle</a></li>
         </ul>
       </div>
       <div class="footer-col">
