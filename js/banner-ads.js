@@ -14,8 +14,11 @@ function hashSeed(str) {
   return h;
 }
 
-function mockInventory(seed, size) {
-  const h = hashSeed(seed + size);
+function mockInventory(seed) {
+  // Hashes on seed alone (not size) so the same placement keeps the same
+  // Occupied/Available status and price everywhere it appears — in the
+  // desktop sidebar, its own mobile-size swap, and the mobile inline echo.
+  const h = hashSeed(seed);
   const occupied = h % 5 < 3; // ~60% occupied, feels like a site that's selling
   const basePrice = 90 + (h % 7) * 35;
   return { status: occupied ? "Occupied" : "Available", price: `$${basePrice}/wk` };
@@ -23,7 +26,7 @@ function mockInventory(seed, size) {
 
 function adSlotHtml(seed, size, mobile) {
   const dims = AD_DIMS[size] || { w: 300, h: 250 };
-  const info = mockInventory(seed, size);
+  const info = mockInventory(seed);
   const statusClass = info.status === "Occupied" ? "is-occupied" : "is-available";
   const aspect = (dims.h / dims.w) * 100;
   return `
@@ -46,6 +49,18 @@ export function renderAdSlot(seed, size, { mobileSize } = {}) {
     return `<div class="ad-slot-wrap">${adSlotHtml(seed, size, false)}${adSlotHtml(seed, mobileSize, true)}</div>`;
   }
   return `<div class="ad-slot-wrap">${adSlotHtml(seed, size, false)}</div>`;
+}
+
+/**
+ * Markup for an ad placement meant to be interleaved inline in a content
+ * list on mobile (hidden on desktop via the .ad-mobile-inline-slot class).
+ * Always renders at the compact 320x100 mobile size, regardless of what
+ * size the same placement uses in the desktop sidebar — passing the same
+ * `seed` as the desktop version keeps their mock Occupied/price status
+ * consistent between the two.
+ */
+export function inlineAdMarkup(seed) {
+  return `<div class="ad-mobile-inline-slot" data-ad-slot="320x100" data-ad-seed="${seed}"></div>`;
 }
 
 export function mountAdSlots(root) {

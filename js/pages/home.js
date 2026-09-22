@@ -1,6 +1,15 @@
 import { NEWS_ARTICLES } from "../mock-data/news.js";
 import { BUSINESSES } from "../mock-data/businesses.js";
 import { CAR_LISTINGS } from "../mock-data/cars.js";
+import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
+
+// Same 5 placements the desktop sidebars show (home-left-1..4, home-right-1),
+// just redistributed through the feed on mobile instead of stacked at the top.
+const INLINE_AFTER_CARD = [
+  { afterIndex: 4, seed: "home-left-1" },
+  { afterIndex: 8, seed: "home-left-2" },
+];
+const FOOTER_AD_SEEDS = ["home-left-3", "home-left-4", "home-right-1"];
 
 function newsCardTemplate(article) {
   return `
@@ -22,7 +31,20 @@ function newsCardTemplate(article) {
 function renderNewsGrid() {
   const grid = document.getElementById("home-news-grid");
   if (!grid) return;
-  grid.innerHTML = NEWS_ARTICLES.slice(0, 8).map(newsCardTemplate).join("");
+  const articles = NEWS_ARTICLES.slice(0, 8);
+  let html = "";
+  articles.forEach((article, i) => {
+    html += newsCardTemplate(article);
+    const adHere = INLINE_AFTER_CARD.find((a) => a.afterIndex === i + 1);
+    if (adHere) html += inlineAdMarkup(adHere.seed);
+  });
+  grid.innerHTML = html;
+}
+
+function renderMobileFooterAds() {
+  const el = document.getElementById("mobile-footer-ads");
+  if (!el) return;
+  el.innerHTML = FOOTER_AD_SEEDS.map((seed) => inlineAdMarkup(seed)).join("");
 }
 
 function renderStatsWidget() {
@@ -74,8 +96,10 @@ function renderTransitWidget() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderNewsGrid();
+  renderMobileFooterAds();
   renderStatsWidget();
   renderCurrencyWidget();
   renderJobsWidget();
   renderTransitWidget();
+  mountAdSlots(document);
 });

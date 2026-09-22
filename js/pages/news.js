@@ -1,6 +1,7 @@
 import { NEWS_ARTICLES } from "../mock-data/news.js";
 import { validate, isEmail, digits } from "../validation.js";
 import { wireModal, closeModal } from "../modal.js";
+import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
 
 function newsCardTemplate(article) {
   return `
@@ -21,7 +22,15 @@ function newsCardTemplate(article) {
 function renderGrid() {
   const grid = document.getElementById("news-grid-all");
   if (!grid) return;
-  grid.innerHTML = NEWS_ARTICLES.map(newsCardTemplate).join("");
+  let html = "";
+  NEWS_ARTICLES.forEach((article, i) => {
+    html += newsCardTemplate(article);
+    if (i + 1 === 4) html += inlineAdMarkup("news-side-1");
+  });
+  grid.innerHTML = html;
+
+  const footerAds = document.getElementById("mobile-footer-ads");
+  if (footerAds) footerAds.innerHTML = inlineAdMarkup("news-side-2");
 }
 
 function wireShareNewsForm() {
@@ -80,4 +89,5 @@ function wireShareNewsForm() {
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
   wireShareNewsForm();
+  mountAdSlots(document);
 });

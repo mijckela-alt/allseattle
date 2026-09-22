@@ -1,4 +1,5 @@
 import { BUSINESSES, BUSINESS_CATEGORIES } from "../mock-data/businesses.js";
+import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
 
 const PACKAGE_CLASS = {
   Standard: "badge-standard",
@@ -35,9 +36,17 @@ function renderGrid(activeCategory) {
   const grid = document.getElementById("biz-grid");
   if (!grid) return;
   const list = activeCategory === "All" ? BUSINESSES : BUSINESSES.filter((b) => b.category === activeCategory);
-  grid.innerHTML = list.length
-    ? list.map(bizCardTemplate).join("")
-    : `<p class="muted">No businesses found in this category yet.</p>`;
+  if (!list.length) {
+    grid.innerHTML = `<p class="muted">No businesses found in this category yet.</p>`;
+    return;
+  }
+  let html = "";
+  list.forEach((biz, i) => {
+    html += bizCardTemplate(biz);
+    if (i + 1 === 4) html += inlineAdMarkup("directory-side-1");
+  });
+  grid.innerHTML = html;
+  mountAdSlots(grid);
 }
 
 function wireFilters() {
@@ -57,4 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderFilters("All");
   renderGrid("All");
   wireFilters();
+  const footerAds = document.getElementById("mobile-footer-ads");
+  if (footerAds) footerAds.innerHTML = inlineAdMarkup("directory-side-2");
+  mountAdSlots(document);
 });

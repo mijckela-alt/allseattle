@@ -1,4 +1,5 @@
 import { CAR_LISTINGS } from "../mock-data/cars.js";
+import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
 
 const fmtPrice = (n) => `$${n.toLocaleString("en-US")}`;
 const fmtMileage = (n) => `${n.toLocaleString("en-US")} mi`;
@@ -67,9 +68,17 @@ function renderResults(list) {
   const grid = document.getElementById("car-grid");
   const count = document.getElementById("auto-results-count");
   count.textContent = `${list.length} car${list.length === 1 ? "" : "s"} found`;
-  grid.innerHTML = list.length
-    ? list.map(carCardTemplate).join("")
-    : `<p class="muted">No cars match those filters. Try widening your search.</p>`;
+  if (!list.length) {
+    grid.innerHTML = `<p class="muted">No cars match those filters. Try widening your search.</p>`;
+    return;
+  }
+  let html = "";
+  list.forEach((car, i) => {
+    html += carCardTemplate(car);
+    if (i + 1 === 4) html += inlineAdMarkup("auto-filter-ad");
+  });
+  grid.innerHTML = html;
+  mountAdSlots(grid);
 }
 
 function wireControls() {

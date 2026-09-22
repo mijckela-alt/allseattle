@@ -68,9 +68,49 @@
 
 .ad-slot--mobile-only { display: none; }
 
-@media (max-width: 460px) {
+@media (max-width: 760px) {
   .ad-slot--desktop { display: none; }
   .ad-slot--mobile-only { display: block; }
+}
+
+/* Desktop sidebar ad slots vs. their mobile inline echoes: exactly one of
+   each pair is ever visible at a time, toggled at the same breakpoint the
+   sidebar itself collapses to a single mobile column at. */
+.ad-mobile-inline-slot {
+  display: none;
+}
+
+.mobile-footer-ads {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .ad-desktop-slot {
+    display: none;
+  }
+  .ad-mobile-inline-slot {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0;
+  }
+  .mobile-footer-ads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .mobile-footer-ads .ad-mobile-inline-slot {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+/* Inside a 2-column card grid, an inline ad should break out to full width */
+.news-grid .ad-mobile-inline-slot,
+.biz-grid .ad-mobile-inline-slot,
+.car-grid .ad-mobile-inline-slot {
+  grid-column: 1 / -1;
 }
 
 /* ---------- Section heading row ---------- */
