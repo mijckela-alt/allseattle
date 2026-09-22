@@ -2,6 +2,7 @@ import { NEWS_ARTICLES } from "../mock-data/news.js";
 import { BUSINESSES } from "../mock-data/businesses.js";
 import { CAR_LISTINGS } from "../mock-data/cars.js";
 import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
+import { initScrollReveal } from "../reveal.js";
 
 // Same 5 placements the desktop sidebars show (home-left-1..4, home-right-1),
 // just redistributed through the feed on mobile instead of stacked at the top.
@@ -13,7 +14,7 @@ const FOOTER_AD_SEEDS = ["home-left-3", "home-left-4", "home-right-1"];
 
 function newsCardTemplate(article) {
   return `
-  <article class="card news-card">
+  <article class="card news-card reveal-on-scroll">
     <a href="news.html" class="news-card-photo"><img src="${article.photo}" alt="${article.title}" loading="lazy"></a>
     <div class="news-card-body">
       <div class="news-card-meta">
@@ -102,4 +103,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderJobsWidget();
   renderTransitWidget();
   mountAdSlots(document);
+  initScrollReveal();
 });

@@ -1,10 +1,11 @@
 import { CONTEST_ENTRIES, getVotes, incrementVote, hasVoted, resetVotes } from "../mock-data/contest.js";
+import { initScrollReveal } from "../reveal.js";
 
 function entryTemplate(entry) {
   const votes = getVotes(entry.id, entry.baseVotes);
   const voted = hasVoted(entry.id);
   return `
-  <article class="card contest-card" data-entry="${entry.id}">
+  <article class="card contest-card reveal-on-scroll" data-entry="${entry.id}">
     <span class="contest-badge">Entry</span>
     <div class="contest-card-photo"><img src="${entry.photo}" alt="${entry.title}" loading="lazy"></div>
     <div class="contest-card-body">
@@ -22,6 +23,7 @@ function render() {
   const grid = document.getElementById("contest-grid");
   if (!grid) return;
   grid.innerHTML = CONTEST_ENTRIES.map(entryTemplate).join("");
+  initScrollReveal();
 }
 
 function wireVoting() {
@@ -34,7 +36,9 @@ function wireVoting() {
     const id = card.dataset.entry;
     const entry = CONTEST_ENTRIES.find((x) => x.id === id);
     const newCount = incrementVote(id, entry.baseVotes);
-    card.querySelector("[data-vote-count]").textContent = `${newCount} votes`;
+    const countEl = card.querySelector("[data-vote-count]");
+    countEl.textContent = `${newCount} votes`;
+    countEl.classList.add("just-voted");
     btn.textContent = "Voted ✓";
     btn.disabled = true;
     btn.classList.add("btn-outline");

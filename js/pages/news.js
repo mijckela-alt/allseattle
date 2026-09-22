@@ -2,10 +2,11 @@ import { NEWS_ARTICLES } from "../mock-data/news.js";
 import { validate, isEmail, digits } from "../validation.js";
 import { wireModal, closeModal } from "../modal.js";
 import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
+import { initScrollReveal } from "../reveal.js";
 
 function newsCardTemplate(article) {
   return `
-  <article class="card news-card">
+  <article class="card news-card reveal-on-scroll">
     <a href="#" class="news-card-photo" onclick="return false"><img src="${article.photo}" alt="${article.title}" loading="lazy"></a>
     <div class="news-card-body">
       <div class="news-card-meta">
@@ -90,4 +91,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
   wireShareNewsForm();
   mountAdSlots(document);
+  initScrollReveal();
 });

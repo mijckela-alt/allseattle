@@ -1,5 +1,6 @@
 import { BUSINESSES, BUSINESS_CATEGORIES } from "../mock-data/businesses.js";
 import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
+import { initScrollReveal } from "../reveal.js";
 
 const PACKAGE_CLASS = {
   Standard: "badge-standard",
@@ -9,7 +10,7 @@ const PACKAGE_CLASS = {
 
 function bizCardTemplate(biz) {
   return `
-  <article class="card biz-card">
+  <article class="card biz-card reveal-on-scroll">
     <div class="biz-card-photo">
       <img src="${biz.photo}" alt="${biz.name}" loading="lazy">
       <span class="badge ${PACKAGE_CLASS[biz.package]}">${biz.package}</span>
@@ -47,6 +48,7 @@ function renderGrid(activeCategory) {
   });
   grid.innerHTML = html;
   mountAdSlots(grid);
+  initScrollReveal(".reveal-on-scroll", grid);
 }
 
 function wireFilters() {

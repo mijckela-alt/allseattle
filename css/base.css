@@ -150,6 +150,7 @@ button, input, select, textarea {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Badges */
@@ -254,6 +255,31 @@ button, input, select, textarea {
   gap: var(--gut);
 }
 
+/* Scroll-reveal: fades/slides an element up as it enters the viewport.
+   See js/reveal.js. --reveal-i staggers a small wave across a grid. */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: calc(var(--reveal-i, 0) * 60ms);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover lift for card types that use .reveal-on-scroll — declared after it
+   so this wins the (equal-specificity) fight over `transform` once a card
+   has already revealed and the user hovers it. */
+.news-card:hover,
+.biz-card:hover,
+.car-card:hover,
+.contest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
 /* Shared breakpoints across the site: 1180 / 980 / 860 / 760 / 620 / 460 / 380 */
 @media (max-width: 620px) {
   .section { padding: 32px 0; }
@@ -262,4 +288,16 @@ button, input, select, textarea {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+  .card { transition: none; }
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .news-card:hover,
+  .biz-card:hover,
+  .car-card:hover,
+  .contest-card:hover {
+    transform: none;
+  }
 }

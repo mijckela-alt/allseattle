@@ -52,6 +52,21 @@
   font-weight: 700;
   cursor: pointer;
   margin-bottom: 12px;
+  position: relative;
+}
+
+.auto-filters-toggle::after {
+  content: "\25BE";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.25s ease;
+  color: var(--color-accent);
+}
+
+.auto-filters-toggle.is-open::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .car-grid {
@@ -73,10 +88,12 @@
     display: block;
   }
   .auto-filters-body {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
   }
   .auto-filters-body.open {
-    display: block;
+    max-height: 900px;
   }
 }
 
@@ -175,5 +192,11 @@
   .my-listing-card img {
     width: 100%;
     height: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-filters-body {
+    transition: none;
   }
 }
