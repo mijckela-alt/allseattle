@@ -44,10 +44,9 @@ function adSlotHtml(seed, displaySize, tierSize, variant) {
   const tier = AD_TIERS[tierSize] || AD_TIERS["300x250"];
   const status = mockStatus(seed);
   const statusClass = status === "Occupied" ? "is-occupied" : "is-available";
-  const aspect = (dims.h / dims.w) * 100;
   const variantClass = variant === "mobile-only" ? "ad-slot--mobile-only" : variant === "desktop" ? "ad-slot--desktop" : "";
   return `
-  <div class="ad-slot ${variantClass}" style="--ad-max-w:${dims.w}px;--ad-aspect:${aspect}%">
+  <div class="ad-slot ${variantClass}" style="--ad-max-w:${dims.w}px;--ad-w:${dims.w};--ad-h:${dims.h}">
     <div class="ad-slot-inner">
       <span class="ad-slot-label">Your Ad Here</span>
       <span class="ad-slot-tier">${tier.name} &middot; ${displaySize}</span>

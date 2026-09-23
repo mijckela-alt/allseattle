@@ -11,21 +11,16 @@
   max-width: var(--ad-max-w);
   min-width: 0;
   flex-shrink: 1;
+  aspect-ratio: var(--ad-w) / var(--ad-h);
+  display: flex;
   border: 2px dashed var(--color-slate-soft);
   border-radius: 10px;
   background: var(--color-bg-soft);
-  position: relative;
-}
-
-.ad-slot::before {
-  content: "";
-  display: block;
-  padding-top: var(--ad-aspect);
 }
 
 .ad-slot-inner {
-  position: absolute;
-  inset: 0;
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;

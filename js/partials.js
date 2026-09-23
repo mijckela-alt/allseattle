@@ -147,7 +147,6 @@ export function renderFooter() {
       <div class="footer-col footer-brand">
         <span class="site-logo-icon site-logo-icon--sm">${PIN_LOGO_SVG}</span>
         <span class="site-logo-word">AllSeattle</span>
-        <p class="footer-slogan">&ldquo;If you're not on this website, you don't exist.&rdquo;</p>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
