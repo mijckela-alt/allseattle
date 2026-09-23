@@ -1,4 +1,4 @@
-import { PIN_LOGO_SVG, SOCIAL_ICONS } from "./logo.js";
+import { SOCIAL_ICONS } from "./logo.js";
 import { markActiveNav } from "./nav-active.js";
 
 // partials.js always lives at "<site root>/js/partials.js", so this resolves
@@ -34,7 +34,7 @@ function heroMarkup() {
   return `
   <div class="hero-banner" id="hero-banner">
     <div class="hero-collage">
-      ${HERO_ITEMS.map((h) => `<img src="${h.img}" alt="${h.label}" class="hero-collage-img hero-collage-${h.key}">`).join("")}
+      <img src="${SITE_ROOT}img/hero/skyline-panorama.png" alt="Seattle skyline with the Space Needle, Mount Rainier and Pike Place Market" class="hero-photo">
       <div class="hero-collage-overlay"></div>
       <div class="hero-text">
         <span class="hero-script">Seattle</span>
@@ -82,11 +82,7 @@ function functionalHeaderMarkup() {
         </div>
       </div>
       <a href="${SITE_ROOT}index.html" class="site-logo">
-        <span class="site-logo-icon">${PIN_LOGO_SVG}</span>
-        <span class="site-logo-text">
-          <span class="site-logo-word">AllSeattle</span>
-          <span class="site-logo-tagline">NEWS &middot; BUSINESS &middot; EVENTS &middot; MORE</span>
-        </span>
+        <img src="${SITE_ROOT}img/icons/logo-lockup.png" alt="AllSeattle — Seattle City Website" class="site-logo-img">
       </a>
       <form class="search-stub" id="search-stub" role="search">
         <input type="search" placeholder="Search AllSeattle..." aria-label="Search">
@@ -145,8 +141,7 @@ export function renderFooter() {
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-col footer-brand">
-        <span class="site-logo-icon site-logo-icon--sm">${PIN_LOGO_SVG}</span>
-        <span class="site-logo-word">AllSeattle</span>
+        <span class="footer-logo-badge"><img src="${SITE_ROOT}img/icons/logo-lockup.png" alt="AllSeattle" class="footer-logo-img"></span>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>

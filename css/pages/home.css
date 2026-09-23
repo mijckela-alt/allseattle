@@ -4,14 +4,16 @@
   gap: 28px;
   align-items: start;
   padding-top: 28px;
+  max-width: 1400px;
 }
 
 .home-sidebar {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  position: sticky;
-  top: calc(var(--header-height) + 10px);
+  /* Deliberately not sticky, unlike the sidebars on every other page — on
+     Home both sidebars (ads and the widgets) scroll away with the page. */
+  position: static;
 }
 
 .ad-slot-top {
