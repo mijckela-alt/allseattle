@@ -24,10 +24,10 @@ Then open `http://localhost:8000/` in a browser. To preview on a phone on the sa
   `localStorage` in your browser only), phone number `(206) 331-8216`.
 - **Mocked, not persisted anywhere**: all news articles, businesses, car listings and contest
   entries (`js/mock-data/`); every form submission (Share the News, Choose a Package, Contact
-  Seller, Add a Car) — nothing is sent over the network or saved to a database; email/social
-  links in the footer are placeholders ("Coming soon").
-- **allseattle.com is not a purchased domain** — it's referenced in the tab title/meta only, and
-  the footer says so explicitly.
+  Seller, Add a Car) — nothing is sent over the network or saved to a database; the email/social
+  links in the footer are placeholder handles, not monitored inboxes/accounts yet.
+- **allseattle.org is a purchased domain**, hosted via GitHub Pages custom domain (see `CNAME`).
+  Live at https://allseattle.org/.
 
 ## Page map
 

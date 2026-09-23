@@ -41,7 +41,7 @@ export const PRICING_FEATURES = [
   { label: "Photos (storefront, products)", standard: 10, lux: 100, premium: 1000 },
   { label: "Listings & job postings", standard: 5, lux: 50, premium: 100 },
   { label: "Product listings", standard: 0, lux: 100, premium: 1000 },
-  { label: "Custom subdomain (yourbusiness.allseattle.com)", standard: false, lux: true, premium: true },
+  { label: "Custom subdomain (yourbusiness.allseattle.org)", standard: false, lux: true, premium: true },
   { label: "Priority placement in directory & search", standard: false, lux: true, premium: true },
   { label: "Banner in category for first month", standard: false, lux: false, premium: true },
   { label: "Branded business page", standard: false, lux: false, premium: true },

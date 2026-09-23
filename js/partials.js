@@ -153,7 +153,7 @@ export function renderFooter() {
         <h4>Contact</h4>
         <ul>
           <li>Phone: <a href="tel:+12063318216">(206) 331-8216</a></li>
-          <li>Email: <a href="mailto:info@allseattle.com">info@allseattle.com</a></li>
+          <li>Email: <a href="mailto:info@allseattle.org">info@allseattle.org</a></li>
           <li>Seattle, WA</li>
         </ul>
       </div>
