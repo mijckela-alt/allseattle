@@ -8,7 +8,7 @@
 
 .hero-collage {
   position: relative;
-  height: 420px;
+  height: 340px;
 }
 
 .hero-photo {
@@ -25,15 +25,41 @@
   pointer-events: none;
 }
 
-.hero-text {
+/* Weather + logo + search overlaid on the hero photo itself (Home only —
+   inner pages keep header-top in its own bar below the compact hero). */
+.hero-overlay-header {
   position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(13,27,42,0) 0%, rgba(13,27,42,0.65) 40%, rgba(13,27,42,0.85) 100%);
+  padding-top: 40px;
+}
+
+.hero-overlay-header .header-top {
+  padding: 14px 20px;
+}
+
+.hero-overlay-header .weather-stub,
+.hero-overlay-header .weather-text strong {
+  color: var(--color-white);
+}
+
+.hero-overlay-header .weather-note {
+  color: #ffcf5c;
+}
+
+.hero-overlay-header .site-logo {
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.hero-overlay-header .search-stub {
+  border-color: transparent;
+  background: rgba(255,255,255,0.95);
 }
 
 .hero-script {
@@ -328,7 +354,12 @@
   }
   .weather-stub { justify-content: center; }
   .search-stub { max-width: 100%; }
-  .hero-collage { height: 320px; }
+  .hero-collage { height: 250px; }
+  .hero-overlay-header {
+    position: static;
+    background: var(--color-navy);
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 860px) {
@@ -336,7 +367,7 @@
 }
 
 @media (max-width: 760px) {
-  .hero-collage { height: 280px; }
+  .hero-collage { height: 210px; }
   .hero-icons-row { flex-wrap: wrap; justify-content: center; row-gap: 16px; column-gap: 24px; }
   .hero-icon { flex: 0 1 30%; min-width: 0; }
 }

@@ -36,10 +36,7 @@ function heroMarkup() {
     <div class="hero-collage">
       <img src="${SITE_ROOT}img/hero/skyline-panorama.png" alt="Seattle skyline with the Space Needle, Mount Rainier and Pike Place Market" class="hero-photo">
       <div class="hero-collage-overlay"></div>
-      <div class="hero-text">
-        <span class="hero-script">Seattle</span>
-        <span class="hero-sub">THE EMERALD CITY</span>
-      </div>
+      <div class="hero-overlay-header">${headerTopMarkup()}</div>
     </div>
     <div class="hero-icons">
       <div class="container hero-icons-row">
@@ -68,10 +65,9 @@ function heroInnerMarkup() {
   </div>`;
 }
 
-function functionalHeaderMarkup() {
+function headerTopMarkup() {
   const w = weatherNow();
   return `
-  <header class="site-header" id="site-header-functional">
     <div class="container header-top">
       <div class="weather-stub" aria-label="Weather (demo widget)">
         <span class="weather-icon" aria-hidden="true">&#9925;</span>
@@ -88,7 +84,13 @@ function functionalHeaderMarkup() {
         <input type="search" placeholder="Search AllSeattle..." aria-label="Search">
         <button type="submit" aria-label="Search">&#128269;</button>
       </form>
-    </div>
+    </div>`;
+}
+
+function functionalHeaderMarkup(pageType) {
+  return `
+  <header class="site-header" id="site-header-functional">
+    ${pageType === "home" ? "" : headerTopMarkup()}
     <nav class="site-nav">
       <div class="container nav-inner">
         <ul class="nav-links">
@@ -113,7 +115,7 @@ export function renderHeader(pageType) {
   const mount = document.getElementById("site-header");
   if (!mount) return;
   const hero = pageType === "home" ? heroMarkup() : heroInnerMarkup();
-  mount.innerHTML = hero + functionalHeaderMarkup();
+  mount.innerHTML = hero + functionalHeaderMarkup(pageType);
   markActiveNav();
   wireSearchStub();
 }
