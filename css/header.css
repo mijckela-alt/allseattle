@@ -258,7 +258,7 @@
 
 .search-stub button {
   border: none;
-  background: var(--color-accent);
+  background: var(--color-slate);
   color: var(--color-white);
   width: 42px;
   cursor: pointer;
