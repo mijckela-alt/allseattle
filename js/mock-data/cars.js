@@ -1,8 +1,8 @@
-function photosFor(bodyType) {
+function photosFor(id) {
   return [
-    `../img/cars/${bodyType}-1.jpg`,
-    `../img/cars/${bodyType}-2.jpg`,
-    `../img/cars/${bodyType}-3.jpg`,
+    `../img/cars/${id}-1.jpg`,
+    `../img/cars/${id}-2.jpg`,
+    `../img/cars/${id}-3.jpg`,
   ];
 }
 
@@ -13,7 +13,7 @@ export const CAR_LISTINGS = [
     price: 21900, mileage: 38000, engine: "2.5L I4", transmission: "Automatic",
     description: "One-owner, clean Carfax, well maintained with full dealer service history. Great commuter car with excellent fuel economy.",
     seller: { name: "Mike R.", phone: "(206) 555-0201" },
-    photos: photosFor("sedan"),
+    photos: photosFor("c1"),
   },
   {
     id: "c2",
@@ -21,7 +21,7 @@ export const CAR_LISTINGS = [
     price: 20400, mileage: 45200, engine: "1.5L Turbo I4", transmission: "CVT Automatic",
     description: "Sport trim, sunroof, heated seats. Recently passed a full inspection, tires replaced last month.",
     seller: { name: "Denise K.", phone: "(206) 555-0214" },
-    photos: photosFor("sedan"),
+    photos: photosFor("c2"),
   },
   {
     id: "c3",
@@ -29,7 +29,7 @@ export const CAR_LISTINGS = [
     price: 17800, mileage: 29500, engine: "2.0L I4", transmission: "Automatic",
     description: "Low mileage, garage kept, no accidents. Great handling and fuel economy for city driving.",
     seller: { name: "Alex T.", phone: "(206) 555-0227" },
-    photos: photosFor("sedan"),
+    photos: photosFor("c3"),
   },
   {
     id: "c4",
@@ -37,7 +37,7 @@ export const CAR_LISTINGS = [
     price: 27500, mileage: 31000, engine: "2.5L Boxer 4", transmission: "CVT Automatic",
     description: "All-wheel drive, roof rack, great for the Cascades. Non-smoker, no pets.",
     seller: { name: "Sarah M.", phone: "(206) 555-0233" },
-    photos: photosFor("suv"),
+    photos: photosFor("c4"),
   },
   {
     id: "c5",
@@ -45,7 +45,7 @@ export const CAR_LISTINGS = [
     price: 27900, mileage: 22000, engine: "2.5L I4", transmission: "Automatic",
     description: "Still under factory warranty, one owner, Seattle-area car its whole life.",
     seller: { name: "James P.", phone: "(206) 555-0246" },
-    photos: photosFor("suv"),
+    photos: photosFor("c5"),
   },
   {
     id: "c6",
@@ -53,7 +53,7 @@ export const CAR_LISTINGS = [
     price: 21200, mileage: 58000, engine: "3.5L V6", transmission: "Automatic",
     description: "3-row seating, tow package, recently serviced brakes and battery.",
     seller: { name: "Chris L.", phone: "(206) 555-0259" },
-    photos: photosFor("suv"),
+    photos: photosFor("c6"),
   },
   {
     id: "c7",
@@ -61,7 +61,7 @@ export const CAR_LISTINGS = [
     price: 29800, mileage: 27500, engine: "3.6L V6", transmission: "Automatic",
     description: "Removable hardtop, off-road package, well cared for. Fun weekend and daily driver.",
     seller: { name: "Kevin B.", phone: "(206) 555-0262" },
-    photos: photosFor("suv"),
+    photos: photosFor("c7"),
   },
   {
     id: "c8",
@@ -69,7 +69,7 @@ export const CAR_LISTINGS = [
     price: 31900, mileage: 41000, engine: "3.5L EcoBoost V6", transmission: "Automatic",
     description: "SuperCrew cab, towing package, bed liner included. Great work or family truck.",
     seller: { name: "Danny W.", phone: "(206) 555-0275" },
-    photos: photosFor("truck"),
+    photos: photosFor("c8"),
   },
   {
     id: "c9",
@@ -77,7 +77,7 @@ export const CAR_LISTINGS = [
     price: 33500, mileage: 34500, engine: "5.3L V8", transmission: "Automatic",
     description: "Crew cab, LT trim, low mileage for the year, no accidents on record.",
     seller: { name: "Robert G.", phone: "(206) 555-0288" },
-    photos: photosFor("truck"),
+    photos: photosFor("c9"),
   },
   {
     id: "c10",
@@ -85,7 +85,7 @@ export const CAR_LISTINGS = [
     price: 13900, mileage: 62000, engine: "1.5L I4", transmission: "CVT Automatic",
     description: "Reliable, economical, and easy to park in the city. New tires this year.",
     seller: { name: "Emily S.", phone: "(206) 555-0291" },
-    photos: photosFor("hatchback"),
+    photos: photosFor("c10"),
   },
   {
     id: "c11",
@@ -93,7 +93,7 @@ export const CAR_LISTINGS = [
     price: 15600, mileage: 51000, engine: "1.4L Turbo I4", transmission: "Automatic",
     description: "Fun to drive, well maintained, recent timing belt service completed.",
     seller: { name: "Nate H.", phone: "(206) 555-0304" },
-    photos: photosFor("hatchback"),
+    photos: photosFor("c11"),
   },
   {
     id: "c12",
@@ -101,7 +101,7 @@ export const CAR_LISTINGS = [
     price: 32900, mileage: 18500, engine: "5.0L V8", transmission: "Manual",
     description: "GT trim, manual transmission, garage kept. Clean title, no track use.",
     seller: { name: "Tyler F.", phone: "(206) 555-0317" },
-    photos: photosFor("coupe"),
+    photos: photosFor("c12"),
   },
   {
     id: "c13",
@@ -109,6 +109,6 @@ export const CAR_LISTINGS = [
     price: 26800, mileage: 26000, engine: "3.6L V6", transmission: "Automatic",
     description: "1LT trim, well cared for, non-smoker. Great condition inside and out.",
     seller: { name: "Marcus D.", phone: "(206) 555-0329" },
-    photos: photosFor("coupe"),
+    photos: photosFor("c13"),
   },
 ];
