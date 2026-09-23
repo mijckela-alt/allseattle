@@ -55,24 +55,45 @@ function renderMobileFooterAds() {
 function renderStatsWidget() {
   const el = document.getElementById("widget-stats");
   if (!el) return;
+  const stats = [
+    ["Listed businesses", `${BUSINESSES.length * 41}+`],
+    ["Active car listings", `${CAR_LISTINGS.length * 27}+`],
+    ["Articles this month", `${NEWS_ARTICLES.length * 6}+`],
+    ["Monthly visitors", "48.2k"],
+  ];
   el.innerHTML = `
-    <h4>AllSeattle by the numbers</h4>
-    <div class="widget-stat-row"><span>Listed businesses</span><strong>${BUSINESSES.length * 41}+</strong></div>
-    <div class="widget-stat-row"><span>Active car listings</span><strong>${CAR_LISTINGS.length * 27}+</strong></div>
-    <div class="widget-stat-row"><span>News articles this month</span><strong>${NEWS_ARTICLES.length * 6}+</strong></div>
-    <div class="widget-stat-row"><span>Monthly visitors</span><strong>48,200+</strong></div>
+    <div class="widget-head">AllSeattle at a Glance</div>
+    <div class="widget-body">
+      <div class="stat-grid">
+        ${stats.map(([label, value]) => `
+          <div class="stat-tile">
+            <span class="num">${value}</span>
+            <span class="label">${label}</span>
+          </div>`).join("")}
+      </div>
+    </div>
   `;
 }
 
 function renderCurrencyWidget() {
   const el = document.getElementById("widget-currency");
   if (!el) return;
+  const rates = [
+    ["EUR", "USD", "1.07", "up"],
+    ["GBP", "USD", "1.26", "down"],
+    ["CAD", "USD", "0.73", "up"],
+    ["UAH", "USD", "0.024", "down"],
+  ];
   el.innerHTML = `
-    <h4>Exchange rates <span class="muted" style="font-weight:400;text-transform:none;">(demo)</span></h4>
-    <div class="widget-stat-row"><span>EUR / USD</span><strong>1.07</strong></div>
-    <div class="widget-stat-row"><span>GBP / USD</span><strong>1.26</strong></div>
-    <div class="widget-stat-row"><span>CAD / USD</span><strong>0.73</strong></div>
-    <div class="widget-stat-row"><span>UAH / USD</span><strong>0.024</strong></div>
+    <div class="widget-head">Exchange Rates <span class="widget-head-tag">demo</span></div>
+    <div class="widget-body ticker">
+      ${rates.map(([a, b, val, dir]) => `
+        <div class="ticker-row">
+          <span class="ticker-pair">${a}<span class="muted">/${b}</span></span>
+          <span class="ticker-value">${val}</span>
+          <span class="ticker-change ${dir}">${dir === "up" ? "&#9650;" : "&#9660;"}</span>
+        </div>`).join("")}
+    </div>
   `;
 }
 
@@ -80,22 +101,31 @@ function renderJobsWidget() {
   const el = document.getElementById("widget-jobs");
   if (!el) return;
   el.innerHTML = `
-    <h4>Job search <span class="muted" style="font-weight:400;text-transform:none;">(coming soon)</span></h4>
-    <div class="field" style="margin-bottom:10px;">
-      <input type="text" placeholder="Job title or keyword" disabled>
+    <div class="widget-head">Job Board</div>
+    <div class="widget-body job-teaser">
+      <p>Local listings from AllSeattle businesses are being lined up now &mdash; the job board launches in a future update.</p>
+      <span class="badge-soon">Coming Soon</span>
     </div>
-    <button class="btn btn-navy btn-sm btn-block" type="button" disabled>Search Jobs</button>
   `;
 }
 
 function renderTransitWidget() {
   const el = document.getElementById("widget-transit");
   if (!el) return;
+  const lines = [
+    ["Link Light Rail", "On time", "good"],
+    ["RapidRide lines", "On time", "good"],
+    ["WA State Ferries", "Minor delays", "warn"],
+  ];
   el.innerHTML = `
-    <h4>City transit</h4>
-    <div class="widget-stat-row"><span>Link Light Rail</span><strong style="color:var(--color-success)">On time</strong></div>
-    <div class="widget-stat-row"><span>RapidRide lines</span><strong style="color:var(--color-success)">On time</strong></div>
-    <div class="widget-stat-row"><span>Washington State Ferries</span><strong style="color:#B7791F">Minor delays</strong></div>
+    <div class="widget-head">City Transit</div>
+    <div class="widget-body">
+      ${lines.map(([name, status, tone]) => `
+        <div class="transit-row">
+          <span>${name}</span>
+          <span class="status-pill status-${tone}">${status}</span>
+        </div>`).join("")}
+    </div>
   `;
 }
 

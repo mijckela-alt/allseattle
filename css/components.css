@@ -301,32 +301,149 @@
 
 /* ---------- Sidebar widgets (home) ---------- */
 .widget {
-  background: var(--color-bg-soft);
+  background: var(--color-white);
+  border: 1px solid var(--color-slate-soft);
   border-radius: var(--radius);
-  padding: 18px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
-.widget h4 {
-  font-size: 13px;
+.widget-head {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.widget-head-tag {
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 11px;
+  color: #9fb0c3;
+}
+
+.widget-body {
+  padding: 16px;
+}
+
+/* Stat grid (AllSeattle at a Glance) */
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-tile {
+  background: var(--color-bg-soft);
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.stat-tile .num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 21px;
+  color: var(--color-accent);
+}
+
+.stat-tile .label {
+  display: block;
+  font-size: 10.5px;
+  color: var(--color-slate);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+/* Exchange-rate ticker */
+.ticker-row {
+  display: grid;
+  grid-template-columns: 1fr auto 18px;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--color-slate-soft);
+  font-size: 13.5px;
+}
+
+.ticker-row:last-child { border-bottom: none; }
+
+.ticker-pair {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ticker-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.ticker-change {
+  font-size: 10px;
+  text-align: right;
+}
+
+.ticker-change.up { color: var(--color-success); }
+.ticker-change.down { color: var(--color-danger); }
+
+/* Job board teaser */
+.job-teaser p {
+  font-size: 13px;
   color: var(--color-slate);
   margin-bottom: 12px;
 }
 
-.widget-stat-row {
+.badge-soon {
+  display: inline-block;
+  background: var(--color-danger-bg);
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* City transit rows */
+.transit-row {
   display: flex;
   justify-content: space-between;
-  padding: 6px 0;
+  align-items: center;
+  padding: 7px 0;
   border-bottom: 1px dashed var(--color-slate-soft);
   font-size: 13.5px;
 }
 
-.widget-stat-row:last-child { border-bottom: none; }
+.transit-row:last-child { border-bottom: none; }
 
-.widget-stat-row strong {
-  color: var(--color-accent);
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.status-pill.status-good {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.status-pill.status-warn {
+  color: #92400e;
+  background: #fef3c7;
 }
 
 /* ---------- Car card ---------- */
