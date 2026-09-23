@@ -1,8 +1,9 @@
-import { NEWS_ARTICLES } from "../mock-data/news.js";
+import { NEWS_ARTICLES, trendingArticles } from "../mock-data/news.js";
 import { validate, isEmail, digits } from "../validation.js";
 import { wireModal, closeModal } from "../modal.js";
 import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
 import { initScrollReveal } from "../reveal.js";
+import { relativeTime } from "../format-time.js";
 
 function newsCardTemplate(article) {
   return `
@@ -12,12 +13,38 @@ function newsCardTemplate(article) {
       <div class="news-card-meta">
         <span class="cat">${article.category}</span>
         <span>&middot;</span>
-        <span>${article.date}</span>
+        <span>${relativeTime(article.publishedAt)}</span>
       </div>
       <h3><a href="#" onclick="return false">${article.title}</a></h3>
       <p class="news-card-excerpt">${article.body}</p>
+      <div class="news-card-footer">
+        <span class="news-card-author">By ${article.author}</span>
+      </div>
     </div>
   </article>`;
+}
+
+function renderTrendingWidget() {
+  const el = document.getElementById("widget-trending");
+  if (!el) return;
+  const trending = trendingArticles(5);
+  el.innerHTML = `
+    <h4>&#128293; Trending Now</h4>
+    <ol class="trending-list">
+      ${trending
+        .map(
+          (a, i) => `
+        <li>
+          <a href="#" onclick="return false">
+            <span class="trending-rank">${i + 1}</span>
+            <span class="trending-title">${a.title}</span>
+          </a>
+          <span class="trending-time">${relativeTime(a.publishedAt)}</span>
+        </li>`
+        )
+        .join("")}
+    </ol>
+  `;
 }
 
 function renderGrid() {
@@ -89,6 +116,7 @@ function wireShareNewsForm() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderGrid();
+  renderTrendingWidget();
   wireShareNewsForm();
   mountAdSlots(document);
   initScrollReveal();

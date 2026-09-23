@@ -176,7 +176,6 @@ export function renderFooter() {
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>This is a demo prototype. allseattle.com is not a live, purchased domain yet.</p>
       <p>&copy; ${year} AllSeattle. All rights reserved.</p>
     </div>
   </footer>`;
