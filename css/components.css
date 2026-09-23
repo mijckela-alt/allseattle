@@ -42,10 +42,11 @@
   color: var(--color-slate);
 }
 
-.ad-slot-size {
+.ad-slot-tier {
   font-size: 11px;
-  color: var(--color-slate);
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: 0.03em;
 }
 
 .ad-slot-status {

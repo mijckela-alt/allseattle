@@ -8,10 +8,14 @@ import { relativeTime } from "../format-time.js";
 // Same 5 placements the desktop sidebars show (home-left-1..4, home-right-1),
 // just redistributed through the feed on mobile instead of stacked at the top.
 const INLINE_AFTER_CARD = [
-  { afterIndex: 4, seed: "home-left-1" },
-  { afterIndex: 8, seed: "home-left-2" },
+  { afterIndex: 4, seed: "home-left-1", size: "300x250" },
+  { afterIndex: 8, seed: "home-left-2", size: "300x250" },
 ];
-const FOOTER_AD_SEEDS = ["home-left-3", "home-left-4", "home-right-1"];
+const FOOTER_AD_SEEDS = [
+  { seed: "home-left-3", size: "300x600" },
+  { seed: "home-left-4", size: "300x250" },
+  { seed: "home-right-1", size: "300x250" },
+];
 
 function newsCardTemplate(article) {
   return `
@@ -41,7 +45,7 @@ function renderNewsGrid() {
   articles.forEach((article, i) => {
     html += newsCardTemplate(article);
     const adHere = INLINE_AFTER_CARD.find((a) => a.afterIndex === i + 1);
-    if (adHere) html += inlineAdMarkup(adHere.seed);
+    if (adHere) html += inlineAdMarkup(adHere.seed, adHere.size);
   });
   grid.innerHTML = html;
 }
@@ -49,7 +53,7 @@ function renderNewsGrid() {
 function renderMobileFooterAds() {
   const el = document.getElementById("mobile-footer-ads");
   if (!el) return;
-  el.innerHTML = FOOTER_AD_SEEDS.map((seed) => inlineAdMarkup(seed)).join("");
+  el.innerHTML = FOOTER_AD_SEEDS.map((ad) => inlineAdMarkup(ad.seed, ad.size)).join("");
 }
 
 function renderStatsWidget() {

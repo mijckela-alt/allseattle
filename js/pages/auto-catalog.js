@@ -76,7 +76,7 @@ function renderResults(list) {
   let html = "";
   list.forEach((car, i) => {
     html += carCardTemplate(car);
-    if (i + 1 === 4) html += inlineAdMarkup("auto-filter-ad");
+    if (i + 1 === 4) html += inlineAdMarkup("auto-filter-ad", "300x600");
   });
   grid.innerHTML = html;
   mountAdSlots(grid);

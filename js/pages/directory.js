@@ -44,7 +44,7 @@ function renderGrid(activeCategory) {
   let html = "";
   list.forEach((biz, i) => {
     html += bizCardTemplate(biz);
-    if (i + 1 === 4) html += inlineAdMarkup("directory-side-1");
+    if (i + 1 === 4) html += inlineAdMarkup("directory-side-1", "300x250");
   });
   grid.innerHTML = html;
   mountAdSlots(grid);
@@ -69,6 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderGrid("All");
   wireFilters();
   const footerAds = document.getElementById("mobile-footer-ads");
-  if (footerAds) footerAds.innerHTML = inlineAdMarkup("directory-side-2");
+  if (footerAds) footerAds.innerHTML = inlineAdMarkup("directory-side-2", "300x600");
   mountAdSlots(document);
 });

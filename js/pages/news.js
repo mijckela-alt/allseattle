@@ -30,12 +30,12 @@ function renderGrid() {
   let html = "";
   NEWS_ARTICLES.forEach((article, i) => {
     html += newsCardTemplate(article);
-    if (i + 1 === 4) html += inlineAdMarkup("news-side-1");
+    if (i + 1 === 4) html += inlineAdMarkup("news-side-1", "300x250");
   });
   grid.innerHTML = html;
 
   const footerAds = document.getElementById("mobile-footer-ads");
-  if (footerAds) footerAds.innerHTML = inlineAdMarkup("news-side-2");
+  if (footerAds) footerAds.innerHTML = inlineAdMarkup("news-side-2", "300x600");
 }
 
 function wireShareNewsForm() {
