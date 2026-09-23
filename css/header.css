@@ -58,8 +58,8 @@
 }
 
 .hero-overlay-header .search-stub {
-  border: none;
-  background: rgba(13,27,42,0.6);
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(74,85,104,0.55);
 }
 
 .hero-overlay-header .search-stub input {
@@ -68,11 +68,11 @@
 }
 
 .hero-overlay-header .search-stub input::placeholder {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.7);
 }
 
 .hero-overlay-header .search-stub button {
-  background: rgba(13,27,42,0.85);
+  background: rgba(74,85,104,0.85);
 }
 
 .hero-script {
