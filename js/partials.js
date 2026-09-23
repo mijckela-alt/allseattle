@@ -114,8 +114,13 @@ function functionalHeaderMarkup(pageType) {
 export function renderHeader(pageType) {
   const mount = document.getElementById("site-header");
   if (!mount) return;
-  const hero = pageType === "home" ? heroMarkup() : heroInnerMarkup();
-  mount.innerHTML = hero + functionalHeaderMarkup(pageType);
+  // The nav bar is rendered as mount's own sibling (not nested inside it)
+  // so its containing block for `position: sticky` is <body> — tall enough
+  // to give it room to stay pinned for the whole page, not just the ~50px
+  // of space left over inside the hero-photo mount once the nav sits
+  // flush against that mount's bottom edge.
+  mount.innerHTML = pageType === "home" ? heroMarkup() : heroInnerMarkup();
+  mount.insertAdjacentHTML("afterend", functionalHeaderMarkup(pageType));
   markActiveNav();
   wireSearchStub();
 }
