@@ -1,4 +1,4 @@
-import { NEWS_ARTICLES, trendingArticles } from "../mock-data/news.js";
+import { NEWS_ARTICLES } from "../mock-data/news.js";
 import { BUSINESSES } from "../mock-data/businesses.js";
 import { CAR_LISTINGS } from "../mock-data/cars.js";
 import { inlineAdMarkup, mountAdSlots } from "../banner-ads.js";
@@ -52,29 +52,6 @@ function renderMobileFooterAds() {
   el.innerHTML = FOOTER_AD_SEEDS.map((seed) => inlineAdMarkup(seed)).join("");
 }
 
-function renderTrendingWidget() {
-  const el = document.getElementById("widget-trending");
-  if (!el) return;
-  const trending = trendingArticles(5);
-  el.innerHTML = `
-    <h4>&#128293; Trending Now</h4>
-    <ol class="trending-list">
-      ${trending
-        .map(
-          (a, i) => `
-        <li>
-          <a href="news.html">
-            <span class="trending-rank">${i + 1}</span>
-            <span class="trending-title">${a.title}</span>
-          </a>
-          <span class="trending-time">${relativeTime(a.publishedAt)}</span>
-        </li>`
-        )
-        .join("")}
-    </ol>
-  `;
-}
-
 function renderStatsWidget() {
   const el = document.getElementById("widget-stats");
   if (!el) return;
@@ -125,7 +102,6 @@ function renderTransitWidget() {
 document.addEventListener("DOMContentLoaded", () => {
   renderNewsGrid();
   renderMobileFooterAds();
-  renderTrendingWidget();
   renderStatsWidget();
   renderCurrencyWidget();
   renderJobsWidget();

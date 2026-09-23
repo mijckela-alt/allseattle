@@ -329,55 +329,6 @@
   color: var(--color-accent);
 }
 
-.trending-list li {
-  padding: 9px 0;
-  border-bottom: 1px dashed var(--color-slate-soft);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.trending-list li:last-child {
-  border-bottom: none;
-}
-
-.trending-list a {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  flex: 1;
-  min-width: 0;
-}
-
-.trending-rank {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 15px;
-  color: var(--color-accent);
-  flex-shrink: 0;
-  width: 16px;
-}
-
-.trending-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-navy);
-  line-height: 1.35;
-}
-
-.trending-list a:hover .trending-title {
-  color: var(--color-accent);
-}
-
-.trending-time {
-  font-size: 11px;
-  color: var(--color-slate);
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-
 /* ---------- Car card ---------- */
 .car-card {
   display: flex;
